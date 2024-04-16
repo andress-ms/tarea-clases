@@ -29,6 +29,6 @@ operaciones = Operaciones(valor1, valor2)
 
 print("Suma:", operaciones.suma())
 print("Resta:", operaciones.resta())
-print("Multiplicacion:", operaciones.multiplicacion)
-print("Division:", operaciones.division)
+print("Multiplicacion:", operaciones.multiplicacion())
+print("Division:", operaciones.division())
 
