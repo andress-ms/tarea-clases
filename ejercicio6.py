@@ -6,7 +6,7 @@ class cuenta_bancaria:
             self.numero_cuenta = self.generar_numero_cuenta()
             self.saldo = saldo
         
-    def generar_numero_cuenta():
+    def generar_numero_cuenta(self):
         cantidad_cuentas = len(cuentas) + 1
         return str(cantidad_cuentas).zfill(8)
     
@@ -55,9 +55,11 @@ def movimiento_cuentas():
             cantidad = float(input("Ingrese el monto del movimiento: "))
             if movimiento == '2':
                 if cantidad > cuenta_encontrada.saldo:
+                    print("Saldo insuficiente")
+                else:
                     cantidad *= -1
-            cuenta_encontrada.mover_saldo(cantidad)
-            print(f"\nMovimiento realizado con exito, nuevo saldo: {cuenta_encontrada.saldo}")    
+                    cuenta_encontrada.actualizar_saldo(cantidad)
+                    print(f"\nMovimiento realizado con exito, nuevo saldo: {cuenta_encontrada.saldo}")       
     else:
         print("\nLa cuenta no fue encontrada.")  
 
