@@ -6,10 +6,6 @@ class Triangulo:
         self.lado2 = lado2
         self.lado3 = lado3 
     
-    def lado1(self):
-        return self._lado1
-
- 
     def lado1(self, value):
         if not isinstance(value, (int, float)):
             raise ValueError("El lado debe ser un número.")
@@ -18,20 +14,12 @@ class Triangulo:
         self._lado1 = value
 
 
-    def lado2(self):
-        return self._lado2
-
-
     def lado2(self, value):
         if not isinstance(value, (int, float)):
             raise ValueError("El lado debe ser un número.")
         if value <= 0:
             raise ValueError("El lado debe ser positivo.")
         self._lado2 = value
-
-    
-    def lado3(self):
-        return self._lado3
 
    
     def lado3(self, value):
