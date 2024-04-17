@@ -2,33 +2,40 @@
  multiplicación y división, cada una en un método, e imprimir dichos resultados."""
 
 class Operaciones:
-    def __init__ (self, valor1, valor2):
-        self.valor1 = valor1
-        self.valor2 = valor2
-    
+    def __init__(self, valor1, valor2):
+        if isinstance(valor1, int) and isinstance(valor2, int):
+            self.valor1 = valor1
+            self.valor2 = valor2
+        else:
+            raise ValueError("Los valores deben ser enteros.")
+
     def suma(self):
         return self.valor1 + self.valor2
-    
+
     def resta(self):
         return self.valor1 - self.valor2
-    
+
     def multiplicacion(self):
         return self.valor1 * self.valor2
-    
+
     def division(self):
         if self.valor2 != 0:
             return self.valor1 / self.valor2
         else:
             print("No se puede dividir entre cero.")
             return None
-        
-valor1 = int(input("Ingrese el primer entero: "))
-valor2 = int(input("Ingrese el segundo entero: "))
 
-operaciones = Operaciones(valor1, valor2)
+try:
+    valor1 = int(input("Ingrese el primer número entero: "))
+    valor2 = int(input("Ingrese el segundo número entero: "))
 
-print("Suma:", operaciones.suma())
-print("Resta:", operaciones.resta())
-print("Multiplicacion:", operaciones.multiplicacion())
-print("Division:", operaciones.division())
+    operaciones = Operaciones(valor1, valor2)
+
+    print("Suma:", operaciones.suma())
+    print("Resta:", operaciones.resta())
+    print("Multiplicación:", operaciones.multiplicacion())
+    print("División:", operaciones.division())
+
+except ValueError:
+    print("Error: Debes ingresar números enteros.")
 
